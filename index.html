@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🎁 Ada Kejutan!</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body class="landing-page">
+
+    <!-- HALAMAN 1: Pertanyaan Awal -->
+    <div id="pageAsk" class="page page-active">
+        <div class="ask-container">
+            <div class="gift-emoji">🎁</div>
+            <h1>Halo!</h1>
+            <p class="ask-text">Ada sesuatu spesial untukmu hari ini...</p>
+            <p class="ask-question">Mau lanjut?</p>
+            <div class="btn-group">
+                <button class="btn btn-yes" onclick="goToCountdown()">Ya, Lanjut! ✨</button>
+                <button class="btn btn-no" onclick="showConfirm()">Tidak</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HALAMAN 2: Konfirmasi Penolakan -->
+    <div id="pageConfirm" class="page">
+        <div class="ask-container">
+            <div class="sad-emoji">😢</div>
+            <h1>Yakin Gamau Lanjut?</h1>
+            <p class="ask-text">Sayang banget lho kalau dilewatkan...</p>
+            <div class="btn-group">
+                <button class="btn btn-yes" onclick="goToCountdown()">Oke, Lanjut! 💕</button>
+                <button class="btn btn-no" onclick="showError()">Yakin Tidak</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HALAMAN 3: Error 404 -->
+    <div id="pageError" class="page">
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <div class="error-emoji">💔</div>
+            <h1>Kejutan Hilang...</h1>
+            <p>Kamu memilih untuk tidak melanjutkan.</p>
+            <p class="error-small">Tapi jangan khawatir, kamu bisa kembali!</p>
+            <button class="btn btn-retry" onclick="location.reload()">Coba Lagi 🔄</button>
+        </div>
+    </div>
+
+    <script>
+        function showConfirm() {
+            document.getElementById('pageAsk').classList.remove('page-active');
+            document.getElementById('pageConfirm').classList.add('page-active');
+        }
+
+        function showError() {
+            document.getElementById('pageConfirm').classList.remove('page-active');
+            document.getElementById('pageError').classList.add('page-active');
+        }
+
+        function goToCountdown() {
+            window.location.href = 'countdown.html';
+        }
+    </script>
+
+</body>
+</html>

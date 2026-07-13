@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body class="main-page">
+
+    <!-- Canvas Confetti Background -->
+    <canvas id="bgConfetti"></canvas>
+
+    <!-- Music Player Bar (Notif dari kanan ke kiri) -->
+        <div class="music-bar" id="musicBar">
+        <div class="music-text">🎵 Now Playing Song...</div>
+        <div class="music-subtext">enjoy the music</div>
+    </div>
+
+    <!-- Section 1: Header -->
+    <section class="section header-section">
+        <div class="header-content">
+            <h1 class="header-title">Happy Birthday</h1>
+            <h2 class="header-name" id="birthdayName"> Daizyla Putri Ratitya</h2>
+            <p class="header-age" id="headerAge">20-07-2008 / 20-07-2026</p>
+            <p class="header-subtitle">✨ Semoga harimu penuh kebahagiaan ✨</p>
+        </div>
+    </section>
+
+    <!-- Section 2: Music Player -->
+    <section class="section music-section">
+        <div class="music-container">
+            <button class="play-btn" id="playBtn" onclick="toggleMusic()">
+                <span class="play-icon" id="playIcon">▶</span>
+                <span class="play-text">Play</span>
+            </button>
+            <p class="enjoy-text">enjoy the music</p>
+        </div>
+        
+        <audio id="bgMusic" loop>
+            <source src="storage/sound/happy_birthday.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <!-- Section 3: Photos -->
+    <section class="section photos-section">
+        <h2 class="photos-title">Foto Card 📸</h2>
+        <div class="photos-grid">
+            <div class="photo-card">
+                <div class="photo-blur">
+                    <img src="storage/img/gambar_1.jpg" alt="Foto 1" onerror="this.src='https://via.placeholder.com/300x400/ff6b9d/fff?text=Foto+1'">
+                </div>
+            </div>
+            <div class="photo-card">
+                <div class="photo-blur">
+                    <img src="storage/img/gambar_2.jpg" alt="Foto 2" onerror="this.src='https://via.placeholder.com/300x400/c44569/fff?text=Foto+2'">
+                </div>
+            </div>
+            <div class="photo-card">
+                <div class="photo-blur">
+                    <img src="storage/img/gambar_3.jpg" alt="Foto 3" onerror="this.src='https://via.placeholder.com/300x400/4facfe/fff?text=Foto+3'">
+                </div>
+            </div>
+            <div class="photo-card">
+                <div class="photo-blur">
+                    <img src="storage/img/gambar_4.jpg" alt="Foto 4" onerror="this.src='https://via.placeholder.com/300x400/f8b500/fff?text=Foto+4'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Long Text -->
+    <section class="section text-section">
+        <div class="text-container">
+            <h3 class="text-title">Untukmu 💌</h3>
+            <div class="text-content">
+                <p>Haii... Selamat Ulang Tahun!!.</p>
+                <p>Di hari indah mu ini aku ikut senang untuk merayakannya juga walaupun mungkin kau sedang tidak ingin melihat/menyapa atau bertemu denganku, dengan itu aku membuatkan kartu ucapan ini secara online murni dengan isi hati ku dan skill ku juga.</p>
+                <p>Terima kasih juga sebelumnya karena kemarin juga sudah merayakan ulang tahun ku yang ke 19 hehehehe, di beri kado juga aku suka kok namun ya begitulah keadaan tidak ada yang tahu
+                    dan waktu tetap terus berjalan ya...</p>
+                <p>Sekali lagi selamat ulang tahun yaa!!!, aku tidak bisa berucap banyak karena memang beginilah cara ku mengekspresikan perasaan ku dari kejauhan, maaf sebelumnya jika membuatmu sering sakit hati atau kecewa dengan keakuan ku sebelumnya.</p>
+                <p>Aku akan tetap disini memandang diri mu selayaknya memandang bulan yang indah di malam hari walau tidak mungkin akan ku raih tapi aku tetap akan menikmati keindahaannya dari kejauhan.</p>
+                <p>Aku harap kau selalu bahagia dan sukses dalam menjalani hidupmu, aku paham sibukmu aku paham kesulitanmu bahkan setiap hal-hal kecil dari mu aku memahaminya, 
+                    kita mengalami kesulitan dan kesenangan yang berbeda jadi aku berdoa berharap agar semangat terus dalam menghadapi semua kesulitan yang ada.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Interactive Confetti Button -->
+    <section class="section confetti-section">
+        <h2 class="confetti-title">Klik untuk Kejutan! 🎉</h2>
+        <button class="confetti-btn" id="confettiBtn" onclick="burstConfetti()">
+            <span>🎊</span>
+            <span>Party Time!</span>
+        </button>
+        <p class="confetti-hint">Tekan tombol di atas untuk efek kertas warna-warni</p>
+    </section>
+
+    <!-- Footer: Developer Credits -->
+    <footer class="dev-footer">
+        <div class="dev-container">
+            <p class="dev-title">💻 Dibuat dengan ❤️</p>
+            <div class="dev-socials">
+                <a href="https://github.com/HafidzX-dev" target="_blank" class="dev-link github">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.youtube.com/@hafidzx108" target="_blank" class="dev-link youtube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    <span>YouTube</span>
+                </a>
+                <a href="https://www.tiktok.com/@sukiwak2" target="_blank" class="dev-link tiktok">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    <span>TikTok</span>
+                </a>
+                <a href="https://www.instagram.com/hafidzx_iiey/" target="_blank" class="dev-link instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <span>Instagram</span>
+                </a>
+            </div>
+            <p class="dev-year">© 2026 | Create By HafidzX</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== KONFIGURASI =====
+        const CONFIG = {
+            name: "Nama Orang Spesial",  // GANTI NAMA DI SINI
+            age: "tahun",                  // GANTI TEKS TAHUN DI SINI
+            musicPath: "music/song.mp3"    // PATH LAGU
+        };
+
+        // ===== SETUP =====
+        const birthdayNameEl = document.getElementById('birthdayName');
+        const headerAgeEl = document.getElementById('headerAge');
+
+        if (birthdayNameEl) {
+            const currentHTMLName = birthdayNameEl.textContent.trim();
+            if (CONFIG.name && CONFIG.name !== "Nama Orang Spesial" && CONFIG.name !== "masukan nama orang" && CONFIG.name.trim() !== "") {
+                birthdayNameEl.textContent = CONFIG.name;
+            } else if (currentHTMLName !== "" && currentHTMLName !== "Nama Orang Spesial" && currentHTMLName !== "masukan nama orang") {
+                CONFIG.name = currentHTMLName;
+            }
+        }
+
+        if (headerAgeEl) {
+            const currentHTMLAge = headerAgeEl.textContent.trim();
+            if (CONFIG.age && CONFIG.age !== "tahun" && CONFIG.age !== "masukan umur" && CONFIG.age.trim() !== "") {
+                headerAgeEl.textContent = CONFIG.age;
+            } else if (currentHTMLAge !== "" && currentHTMLAge !== "tahun" && currentHTMLAge !== "masukan umur") {
+                CONFIG.age = currentHTMLAge;
+            }
+        }
+
+        // ===== MUSIC =====
+        const bgMusic = document.getElementById('bgMusic');
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const musicBar = document.getElementById('musicBar');
+        let isPlaying = false;
+
+                function toggleMusic() {
+            if (isPlaying) {
+                bgMusic.pause();
+                playIcon.textContent = '▶';
+                playBtn.classList.remove('playing');
+                musicBar.classList.remove('show');
+            } else {
+                bgMusic.play().catch(e => console.log('Audio blocked'));
+                playIcon.textContent = '⏸';
+                playBtn.classList.add('playing');
+                // Reset animasi: hapus class, force reflow, tambahkan lagi
+                musicBar.classList.remove('show');
+                void musicBar.offsetWidth;
+                musicBar.classList.add('show');
+            }
+            isPlaying = !isPlaying;
+        }
+        // ===== BACKGROUND CONFETTI =====
+        const bgCanvas = document.getElementById('bgConfetti');
+        const ctxBg = bgCanvas.getContext('2d');
+        bgCanvas.width = window.innerWidth;
+        bgCanvas.height = window.innerHeight;
+
+        const bgColors = ['#ff6b9d', '#c44569', '#f8b500', '#4facfe', '#00f2fe', '#a8edea', '#fed6e3'];
+        const bgParticles = [];
+
+        for (let i = 0; i < 80; i++) {
+            bgParticles.push({
+                x: Math.random() * bgCanvas.width,
+                y: Math.random() * bgCanvas.height,
+                w: Math.random() * 8 + 3,
+                h: Math.random() * 5 + 2,
+                color: bgColors[Math.floor(Math.random() * bgColors.length)],
+                speed: Math.random() * 1.5 + 0.5,
+                angle: Math.random() * 360,
+                spin: Math.random() * 0.1 - 0.05
+            });
+        }
+
+        function drawBgConfetti() {
+            ctxBg.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+            bgParticles.forEach(p => {
+                ctxBg.save();
+                ctxBg.translate(p.x, p.y);
+                ctxBg.rotate(p.angle * Math.PI / 180);
+                ctxBg.fillStyle = p.color;
+                ctxBg.globalAlpha = 0.6;
+                ctxBg.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+                ctxBg.restore();
+
+                p.y -= p.speed;
+                p.angle += p.spin * 5;
+                p.x += Math.sin(p.y * 0.01) * 0.5;
+
+                if (p.y < -20) {
+                    p.y = bgCanvas.height + 20;
+                    p.x = Math.random() * bgCanvas.width;
+                }
+            });
+            requestAnimationFrame(drawBgConfetti);
+        }
+        drawBgConfetti();
+
+        // ===== BURST CONFETTI (Interactive Button) =====
+        function burstConfetti() {
+            const btn = document.getElementById('confettiBtn');
+            const rect = btn.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            for (let i = 0; i < 60; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'burst-particle';
+                particle.style.left = centerX + 'px';
+                particle.style.top = centerY + 'px';
+                particle.style.background = bgColors[Math.floor(Math.random() * bgColors.length)];
+                
+                const angle = (Math.PI * 2 / 60) * i;
+                const velocity = Math.random() * 200 + 100;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+                
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+                
+                document.body.appendChild(particle);
+                
+                setTimeout(() => particle.remove(), 1500);
+            }
+
+            // Button feedback
+            btn.style.transform = 'scale(0.95)';
+            setTimeout(() => btn.style.transform = 'scale(1)', 150);
+        }
+
+        // ===== RESIZE =====
+        window.addEventListener('resize', () => {
+            bgCanvas.width = window.innerWidth;
+            bgCanvas.height = window.innerHeight;
+        });
+
+        // ===== SMOOTH SCROLL FIX FOR MOBILE =====
+        let touchStartY = 0;
+        document.addEventListener('touchstart', e => {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', e => {
+            // Allow natural scroll
+        }, { passive: true });
+    </script>
+
+</body>
+</html>
